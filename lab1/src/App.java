@@ -1,3 +1,10 @@
+/**
+* Java Doc 
+* @author  Chi ieong Ng
+* @version 1.0
+* @since   2021-10-04 
+*/
+
 import java.util.*;
 
 public class App {
