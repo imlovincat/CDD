@@ -1,0 +1,24 @@
+[INFO   ] Logger: Record log in /home/chiieongng/.kivy/logs/kivy_21-10-07_1.txt
+[INFO   ] Kivy: v2.0.0
+[INFO   ] Kivy: Installed at "/home/chiieongng/.local/lib/python3.8/site-packages/kivy/__init__.py"
+[INFO   ] Python: v3.8.10 (default, Jun  2 2021, 10:49:15) 
+[GCC 9.4.0]
+[INFO   ] Python: Interpreter at "/usr/bin/python3"
+[INFO   ] Factory: 186 symbols loaded
+[INFO   ] Image: Providers: img_tex, img_dds, img_sdl2, img_pil (img_ffpyplayer ignored)
+[INFO   ] Text: Provider: sdl2
+[ERROR  ] Input: MTDev is not supported by your version of linux
+Traceback (most recent call last):
+  File "/home/chiieongng/.local/lib/python3.8/site-packages/kivy/input/providers/__init__.py", line 41, in <module>
+    import kivy.input.providers.mtdev
+  File "/home/chiieongng/.local/lib/python3.8/site-packages/kivy/input/providers/mtdev.py", line 84, in <module>
+    from kivy.lib.mtdev import Device, \
+  File "/home/chiieongng/.local/lib/python3.8/site-packages/kivy/lib/mtdev.py", line 29, in <module>
+    libmtdev = cdll.LoadLibrary('libmtdev.so.1')
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 451, in LoadLibrary
+    return self._dlltype(name)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: libmtdev.so.1: cannot open shared object file: No such file or directory
+[INFO   ] Window: Provider: sdl2
+[INFO   ] Window: Provider: x11(['window_sdl2'] ignored)
