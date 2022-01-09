@@ -4,14 +4,14 @@ import java.util.concurrent.Semaphore;
 /**
  * Class Queues
  * @author			Chi Ieong Ng C00223421
- * 
+ * @version			1.0
+ * @since			2021-11-15
  */
 
 public class Queues{
 	
 	/**
 	 * Semaphore controller
-	 * 
 	 */
 	
 	Semaphore leadersQ = new Semaphore(0);

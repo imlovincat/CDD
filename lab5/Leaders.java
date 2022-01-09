@@ -3,14 +3,14 @@ package lab5;
 /**
  * Class Leaders
  * @author			Chi Ieong Ng C00223421
- * 
+ * @version			1.0
+ * @since			2021-11-15
  */
 
 public class Leaders implements Runnable{
 	
 	/**
 	 * Leaders queue
-	 * 
 	 */
 	
 	private String name;
@@ -43,51 +43,33 @@ public class Leaders implements Runnable{
 	 */
 	public void dance() {
 		System.out.println("Leader " + this.getName() + " dances!");
-		//name++;
 	}
 	
 	@Override
 	public void run() {
+		/**
+		 * run
+		 */
 		try {
 			queue.mutex.acquire();
-			
-			//System.out.println("Leader(" + this.name + ")'s Leaders: " + queue.getLeaders());
-			//System.out.println("Leader(" + this.name + ")'s Followers: " + queue.getFollowers());
-
-			if (queue.getFollowers() > 0) {
-				//System.out.println("Leaders(" + this.name + ") if");
-				
+			if (queue.getFollowers() > 0) {	
 				queue.setFollowers(queue.getFollowers() - 1);
-				queue.followersQ.release();
-				
+				queue.followersQ.release();	
 			}
 			
 			else {
-				//System.out.println("Leaders(" + this.name + ") else");
-				
 				queue.setLeaders(queue.getLeaders() + 1);
 				queue.mutex.release();
 				queue.leadersQ.acquire();
 				
 			}
-			
 			dance();
 			Thread.sleep(1000);
-			
-			//System.out.println("Final Leader(" + this.name + ")'s Leaders: " + queue.getLeaders());
-			//System.out.println("Final Leader(" + this.name + ")'s Followers: " + queue.getFollowers());
-			
-			
 			queue.rendezvous.acquire();
-			queue.mutex.release();
-			
-			
+			queue.mutex.release();	
 		}
 		catch (Exception e) {
 			e.printStackTrace();
-		}
-		
+		}	
 	}
-
-
 }
