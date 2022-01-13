@@ -76,6 +76,7 @@ void updateCells(Cells& board) {
 }
  
 int main () {
+    # pragma omp parallel for
     for (int gen = 0; gen < 20; gen++) {
         std::cout << "\ngeneration " << gen << ":\n";
         showCells(board);

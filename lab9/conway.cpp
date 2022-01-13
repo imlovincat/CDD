@@ -137,6 +137,7 @@ char GameOfLife::getState( char state, char yCoord, char xCoord, bool toggle ) {
 }
  
 void GameOfLife::iterate( unsigned int iterations ) {
+    # pragma omp parallel for
     for ( int i = 0; i < iterations; i++ ) {
         print();
         update();
@@ -165,6 +166,7 @@ Glider::Glider( char x , char y ) {
 }
  
 Glider::~Glider() {
+    # pragma omp parallel for
     for ( char i = 0; i < GLIDER_SIZE; i++ ) {
         delete[] figure[i];
     }
@@ -177,6 +179,7 @@ Blinker::Blinker( char x , char y ) {
     height = BLINKER_HEIGHT;
     width = BLINKER_WIDTH;
     figure = new char*[BLINKER_HEIGHT];
+
     for ( char i = 0; i < BLINKER_HEIGHT; i++ ) {
         figure[i] = new char[BLINKER_WIDTH];
     }
@@ -188,6 +191,7 @@ Blinker::Blinker( char x , char y ) {
 }
  
 Blinker::~Blinker() {
+    # pragma omp parallel for
     for ( char i = 0; i < BLINKER_HEIGHT; i++ ) {
         delete[] figure[i];
     }
