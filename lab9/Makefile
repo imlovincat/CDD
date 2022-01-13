@@ -1,25 +1,17 @@
-CFILES= conway.cpp
+CFILES= game.c
 HFILES=
-CC=g++
+CC=gcc
 CFLAGS= -std=c++11  -fopenmp
 
-%.o: %.cpp
+%.o: %.c
 	$(CC) -c -o $@ $< $(CFLAGS) $(DEBUGFLAGS)
 
-CONWAY: conway.o
-	$(CC) -o conway.out conway.o $(CFLAGS) $(DEBUGFLAGS)
-
-ALTER: alter.o
-	$(CC) -o alter.out alter.o $(CFLAGS) $(DEBUGFLAGS)
-
-SIMPLE: simple.o
-	$(CC) -o simple.out simple.o $(CFLAGS) $(DEBUGFLAGS)
+GAME: game.o
+	$(CC) -o game.out game.o $(CFLAGS) $(DEBUGFLAGS)
 
 
 DSTENCIL: DEBUGFLAGS = -g -O0
-DSTENCIL: CONWAY
-DSTENCIL: ALTER
-DSTENCIL: SIMPLE
+DSTENCIL: GAME
 
 CLEAN:
 	rm *.o
